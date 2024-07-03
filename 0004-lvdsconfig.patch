@@ -1,0 +1,60 @@
+From 443dfccfff7b419f04c2f1bb65481325db0f3edd Mon Sep 17 00:00:00 2001
+From: aashikareliya <aashik@glidemtech.com>
+Date: Thu, 20 Jun 2024 12:36:42 +0000
+Subject: [PATCH 4/4] lvdsconfig
+
+---
+ .../boot/dts/freescale/imx93-iwg50s-prgjj.dts | 25 ++++++++++++++++---
+ 1 file changed, 22 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts b/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts
+index d43acab1fd5b..9d05919fa246 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts
+@@ -67,13 +67,31 @@ codecdai: simple-audio-card,codec {
+         };
+ 
+         lvds_panel { /* LVDS1: LVDS panel */
+-                compatible = "powertip,ph128800t004-zhc";
++                compatible = "panel-lvds";
+                 pinctrl-names = "default";
+                 power-supply = <&reg_3p3v>;
+                 backlight = <&lvds_backlight>;
+                 enable-gpios = <&pca9571 7 GPIO_ACTIVE_HIGH>;
+                 status = "okay";
+-
++                data-mapping = "jeida-24";
++		height-mm = <217>;
++                width-mm = <136>;
++
++                panel-timing {
++			clock-frequency = <68900000>;
++			hactive = <1024>;
++			vactive = <768>;
++			hsync-len = <48>;
++			hfront-porch = <70>;
++			hback-porch = <70>;
++			vfront-porch = <70>;
++			vback-porch = <8>;
++			vsync-len = <7>;
++			hsync-active = <0>;
++			vsync-active = <0>;
++			de-active = <1>;
++			pixelclk-active = <0>;
++		};
+                 port {
+                         panel_lvds_in: endpoint {
+                                 remote-endpoint = <&lvds_out>;
+@@ -139,7 +157,8 @@ &ldb {
+ 
+         lvds-channel@0 {
+                 status = "okay";
+-
++                fsl,data-mapping = "jeida";
++		fsl,data-width = <24>;
+                 port@1 {
+                         reg = <1>;
+ 
+-- 
+2.25.1
+

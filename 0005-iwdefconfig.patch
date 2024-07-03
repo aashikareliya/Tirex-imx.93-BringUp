@@ -1,0 +1,34 @@
+From fa37586c646b6a606b616a126c057209920a44b2 Mon Sep 17 00:00:00 2001
+From: aashikareliya <aashik@glidemtech.com>
+Date: Mon, 24 Jun 2024 05:03:29 +0000
+Subject: [PATCH 5/5] iwdefconfig
+
+---
+ arch/arm64/configs/iw_rainbowg50m_defconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/configs/iw_rainbowg50m_defconfig b/arch/arm64/configs/iw_rainbowg50m_defconfig
+index 503a2f1e6851..13c3559f4a1c 100644
+--- a/arch/arm64/configs/iw_rainbowg50m_defconfig
++++ b/arch/arm64/configs/iw_rainbowg50m_defconfig
+@@ -378,7 +378,7 @@ CONFIG_KEYBOARD_CROS_EC=y
+ CONFIG_INPUT_TOUCHSCREEN=y
+ CONFIG_TOUCHSCREEN_ATMEL_MXT=m
+ CONFIG_TOUCHSCREEN_EXC3000=m
+-CONFIG_TOUCHSCREEN_GOODIX=m
++CONFIG_TOUCHSCREEN_GOODIX=y
+ CONFIG_TOUCHSCREEN_EDT_FT5X06=m
+ CONFIG_TOUCHSCREEN_SYNAPTICS_DSX_I2C=m
+ CONFIG_TOUCHSCREEN_USB_COMPOSITE=y
+@@ -592,7 +592,7 @@ CONFIG_DRM_MALI_DISPLAY=m
+ CONFIG_DRM_NOUVEAU=m
+ CONFIG_DRM_RCAR_DW_HDMI=m
+ CONFIG_DRM_PANEL_BOE_TV101WUM_NL6=m
+-CONFIG_DRM_PANEL_LVDS=m
++CONFIG_DRM_PANEL_LVDS=y
+ CONFIG_DRM_PANEL_SIMPLE=y
+ CONFIG_DRM_PANEL_MANTIX_MLAF057WE51=m
+ CONFIG_DRM_PANEL_ONTAT_KD50G21_40NT_A1=y
+-- 
+2.25.1
+

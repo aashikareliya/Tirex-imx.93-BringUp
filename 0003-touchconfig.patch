@@ -1,0 +1,36 @@
+From e05261c5b471c398bead6d60c6895e6e13d0b829 Mon Sep 17 00:00:00 2001
+From: aashikareliya <aashik@glidemtech.com>
+Date: Thu, 20 Jun 2024 11:46:19 +0000
+Subject: [PATCH 3/3] touchconfig
+
+---
+ .../arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts b/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts
+index 2a16b1e75800..f0d5e45e93fd 100644
+--- a/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts
++++ b/arch/arm64/boot/dts/freescale/imx93-iwg50s-prgjj.dts
+@@ -229,6 +229,19 @@ sgtl5000_codec: sgtl5000@a { /* SGTL5000: Audio Codec */
+                 VDDD-supply = <&reg_1p5v>;
+                 status = "okay";
+         };
++
++       touchscreen@5d {
++	    compatible = "goodix,gt9271";
++	    reg = <0x5d>;
++	    pinctrl-names = "default";
++	    interrupt-parent = <&gpio2>;
++	    interrupts = <10 IRQ_TYPE_LEVEL_HIGH>;
++	    rst-gpios = <&gpio2 9 GPIO_ACTIVE_HIGH>;
++	    irq-gpios = <&gpio2 10 GPIO_ACTIVE_HIGH>;
++	    touchscreen-size-x = <1024>;
++	    touchscreen-size-y = <768>;
++	    AVDD28-supply = <&reg_3p3v>;
++	};
+ };
+ 
+ &lpspi4 {
+-- 
+2.25.1
+
